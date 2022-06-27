@@ -1,0 +1,15 @@
+server {
+    server_name cat.arelyx.xyz cats.arelyx.xyz;
+    
+    location /static {
+        autoindex on;
+        alias /home/admin/www/cat/pics;
+    }
+    
+    location / {
+        proxy_pass http://localhost:3000;
+        include /etc/nginx/proxy_params;
+        proxy_redirect off;
+    }
+
+}

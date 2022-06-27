@@ -1,0 +1,15 @@
+[Unit]
+Description="Node"
+
+[Service]
+ExecStart=/home/admin/.nvm/versions/node/v18.4.0/bin/node index.js
+WorkingDirectory=/home/admin/www/cat
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=catApp
+Environment=NODE_ENV=production PORT=3000
+
+[Install]
+WantedBy=multi-user.target
